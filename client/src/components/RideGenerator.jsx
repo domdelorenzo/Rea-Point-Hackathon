@@ -12,7 +12,7 @@ const RideGenerator = (props) => {
             <div className="info-wrapper">
                 <h2>{props.name}</h2>
                 <h3>{props.description}</h3>
-                <h3>{props.heightRequirement}</h3>
+                <h3>Height:{props.heightRequirement} inches</h3>
             </div>
             {/* link to review */}
 
