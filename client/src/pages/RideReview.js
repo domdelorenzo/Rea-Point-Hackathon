@@ -1,10 +1,9 @@
 import React from 'react'
-import Reviews from './Review'
 
 
-const RideGenerator = (props) => {
 
-    //implement route path /ride/${id}
+const RideReview = (props) => {
+
     return (
         <div className="ride-card">
             <div className="img-wrapper">
@@ -29,4 +28,4 @@ const RideGenerator = (props) => {
 
 }
 
-export default RideGenerator
+export default RideReview
