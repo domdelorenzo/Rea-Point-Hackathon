@@ -1,9 +1,26 @@
-import React from 'react'
-
-
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const RideReview = (props) => {
 
+const [rides, setRides] = useState([])
+const { id } = useParams()
+
+useEffect (() => {
+
+    getRides()
+  
+  }, [])
+
+const getRides = async () => {
+    const response = await axios.get(
+      `http://localhost:3001/api/rides/${id}`
+    )
+    setRides(response)
+  }
+
+// console.log(id)
     return (
         <div className="ride-card">
             <div className="img-wrapper">

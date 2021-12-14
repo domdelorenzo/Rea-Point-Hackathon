@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-// import RideData from '../data/RideData'
 import RideGenerator from '../components/RideGenerator'
-// import ridesArr from '.../seed/rides.js'
 import RideReview from './RideReview'
 
 const Home = (props) => {
 
 const [rides, setRides] = useState([])
+
 
 useEffect (() => {
 
@@ -23,14 +22,15 @@ useEffect (() => {
   }
 
     return (
+      
         <div>
             <h1>Welcome!</h1>
             <section className="container-grid">
             {rides.map((ride) => (
             <RideGenerator
-              
               name={ride.name}
               key={ride.id}
+              id={ride._id}
               height={ride.heightRequirement}
               image={ride.image}
               {...ride}
