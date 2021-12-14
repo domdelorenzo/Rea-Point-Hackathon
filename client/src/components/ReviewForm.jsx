@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
 const ReviewForm = (props) => {
 
@@ -9,7 +10,7 @@ const ReviewForm = (props) => {
     const [rating, setRating] = useState(0)
 
     const handleSubmit = async () => {
-        const res = await axios.post()
+        const res = await axios.post('localhost:3001/api/reviews/:id')
     }
 
     return (
