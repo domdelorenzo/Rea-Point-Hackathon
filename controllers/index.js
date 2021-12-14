@@ -52,7 +52,6 @@ const updateReview = async (req, res) => {
       req.body,
       { new: true },
       (err, review) => {
-
         // if (err) {
         //   res.status(500).send(err);
         // }
@@ -63,9 +62,7 @@ const updateReview = async (req, res) => {
       }
     );
   } catch (error) {
-
     // res.status(500).send(error.message);
-
   }
 };
 

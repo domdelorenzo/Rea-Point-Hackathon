@@ -4,37 +4,38 @@ import axios from 'axios'
 
 const RideReview = (props) => {
 
-const [rides, setRides] = useState([])
+const [ride, setRide] = useState([])
 const { id } = useParams()
 
 useEffect (() => {
 
-    getRides()
+    getRide()
   
   }, [])
 
-const getRides = async () => {
+const getRide = async () => {
     const response = await axios.get(
-      `http://localhost:3001/api/rides/${id}`
+      `http://localhost:3001/api/rides/id/${id}`
     )
-    setRides(response)
+    console.log(response.data.ride.image)
+    setRide(response.data)
   }
+// console.log('rideimagereturn', response.data)
 
-// console.log(id)
     return (
         <div className="ride-card">
             <div className="img-wrapper">
-                <img src={props.image} alt="ride image" />
+                <img src={ride.image} alt="ride image" />
 
             </div>
             <div className="info-wrapper">
-                <h2>{props.name}</h2>
-                <h3>{props.description}</h3>
-                <h3>{props.heightRequirement}</h3>
+                <h2>{ride.name}</h2>
+                <h3>{ride.description}</h3>
+                <h3>{ride.heightRequirement}</h3>
             </div>
             <div className="reviews-card">
                 <section className="container-grid">
-                    <Reviews />
+                    {/* <Reviews /> */}
                 </section>
             </div>
 
