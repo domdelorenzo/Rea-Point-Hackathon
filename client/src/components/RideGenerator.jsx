@@ -10,7 +10,7 @@ const RideGenerator = (props) => {
         <div className="ride-card">
 
             <div className="img-wrapper">
-                    <img src={props.image} alt="ride image" />
+                <img src={props.image} alt="ride image" />
 
             </div>
             <div className="info-wrapper">

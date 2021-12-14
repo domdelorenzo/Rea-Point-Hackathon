@@ -5,23 +5,36 @@ import Reviews from '../components/Reviews'
 
 const RideReview = (props) => {
 
-const [ride, setRide] = useState([])
-const { id } = useParams()
+    const [reviews, setReviews] = useState([])
+    const [ride, setRide] = useState([])
+    const { id } = useParams()
 
-useEffect (() => {
+    useEffect(() => {
+        showReviews()
+        getRide()
 
-    getRide()
-  
-  }, [])
+    }, [])
 
-const getRide = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/rides/id/${id}`
-    )
-    console.log(response.data.ride.image)
-    setRide(response.data)
-  }
-// console.log('rideimagereturn', response.data)
+    const getRide = async () => {
+        const response = await axios.get(
+            `http://localhost:3001/api/rides/id/${id}`
+        )
+        console.log(response.data.ride.image)
+        setRide(response.data.ride)
+    }
+
+    const showReviews = async () => {
+        const res = await axios.get(
+            'http://localhost:3001/api/reviews'
+            )
+            // `http://localhost:3001/api/reviews/${props.name}`
+            // console.log('ridename', props.name)
+            // /reviews/:name
+            setReviews(res.data.reviews)
+            
+    }
+
+    // console.log('rideimagereturn', response.data)
 
     return (
         <div className="ride-card">
@@ -36,7 +49,18 @@ const getRide = async () => {
             </div>
             <div className="reviews-card">
                 <section className="container-grid">
-                    {/* <Reviews /> */}
+                    {reviews.map((review) => (
+                        <Reviews
+                            title={review.title}
+                            name={review.name}
+                            username={review.username}
+                            description={review.description}
+                            rating={review.rating}
+                            key={review.id}
+                            // id={review._id}
+                            {...reviews}
+                        />
+                    ))}
                 </section>
             </div>
 
