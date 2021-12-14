@@ -1,20 +1,21 @@
 import './App.css';
-import { Route, Switch } from "react-router-dom"
+import { Route, Routes, BrowserRouter } from "react-router-dom"
+import Home from './pages/Home';
+
 
 function App() {
   
   return (
-    <div>
-      <Navbar />
-      <main>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/attractions" component={Attractions} />
-          <Route path="/visit" component={Visit} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </main>
-    </div>
+    
+
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            {/* <Route path="/attractions" component={Attractions} />
+            <Route path="/visit" component={Visit} />
+            <Route path="/about" component={About} /> */}
+          </Routes>
+        
+       
   )
 }
 
