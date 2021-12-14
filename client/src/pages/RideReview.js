@@ -1,4 +1,5 @@
 import React from 'react'
+import Reviews from '../components/Reviews'
 
 
 
@@ -17,7 +18,7 @@ const RideReview = (props) => {
             </div>
             <div className="reviews-card">
                 <section className="container-grid">
-
+                    <Reviews />
                 </section>
             </div>
 
