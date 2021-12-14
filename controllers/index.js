@@ -1,4 +1,5 @@
 const Ride = require('../models/ride');
+const Review = require('../models/review');
 
 const getAllRides = async (req, res) => {
   try {
