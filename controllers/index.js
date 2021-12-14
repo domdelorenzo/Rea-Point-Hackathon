@@ -38,18 +38,18 @@ const updateReview = async (req, res) => {
       id,
       req.body,
       { new: true },
-      (err, plant) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-        if (!review) {
-          res.status(500).send('Review not found!');
-        }
+      (err, review) => {
+        //   if (err) {
+        //     res.status(500).send(err);
+        //   }
+        //   if (!review) {
+        //     res.status(500).send('Review not found!');
+        //   }
         return res.status(200).json(review);
       }
     );
   } catch (error) {
-    return res.status(500).send(error.message);
+    // return res.status(500).send(error.message);
   }
 };
 
@@ -66,10 +66,33 @@ const deleteReview = async (req, res) => {
   }
 };
 
+const getByRideName = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const reviews = await Review.find({ name: name });
+    return res.status(200).json({ reviews });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
+const getRideByRideName = async (req, res) => {
+  const name = req.params.name;
+  try {
+    const rides = await Ride.find({ name: name });
+    return res.status(200).json({ rides });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 module.exports = {
   getAllRides,
   getAllReviews,
   createReview,
   updateReview,
-  deleteReview
+  deleteReview,
+  getByRideName,
+  getRideByRideName
 };
