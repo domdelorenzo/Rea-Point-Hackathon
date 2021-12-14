@@ -14,7 +14,7 @@ function Reviews(props) {
         <h1>Reviews</h1>
         <form onSubmit={ handleSubmit }>
             {/* to edit */}
-          <input type="text" value={newReview.name} onChange={ props.handleChange} name={'name'} placeholder={'Title'} />
+          <input type="text" value={newReview.name} onChange={ props.handleChange} name={'name'} placeholder={'Leave Review'} />
           <input type="text" value={newBoat.img} onChange={ props.handleChange} name={'img'} placeholder={'image'} />
           <input type="text-area" value={newBoat.description} onChange={ props.handleChange} name={'description'} placeholder={'description'} />
           <button>Submit</button>
