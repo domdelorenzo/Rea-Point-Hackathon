@@ -34,7 +34,7 @@ const getRides = async () => {
             </div>
             <div className="reviews-card">
                 <section className="container-grid">
-
+                    <Reviews />
                 </section>
             </div>
 

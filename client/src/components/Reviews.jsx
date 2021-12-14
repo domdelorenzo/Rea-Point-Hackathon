@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReviewForm from './ReviewForm'
 
-function Reviews(props) {
+const Reviews = () => {
+
+  const showReviews = async () => {
+    const req = await axios.get()
+  }
 
   return (
     <div>
-      {/* render previous reviews here */}
+      {showReviews()}
       <ReviewForm />
     </div>
   )
-}
+} 
 
   export default Reviews

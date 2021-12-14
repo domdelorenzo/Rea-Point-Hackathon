@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ReviewForm = (props) => {
 
@@ -8,6 +8,9 @@ const ReviewForm = (props) => {
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState(0)
 
+    const handleSubmit = async () => {
+        const res = await axios.post()
+    }
 
     return (
         <div classname="review-form">
