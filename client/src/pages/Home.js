@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import RideGenerator from '../components/RideGenerator'
 import RideReview from './RideReview'
+import '../App.css'
 
 const Home = (props) => {
 
-const [rides, setRides] = useState([])
+  const [rides, setRides] = useState([])
 
 
-useEffect (() => {
+  useEffect(() => {
 
-  getRides()
+    getRides()
 
-}, [])
-  
+  }, [])
+
   const getRides = async () => {
     const response = await axios.get(
       'http://localhost:3001/api/rides'
@@ -21,25 +22,25 @@ useEffect (() => {
     setRides(response.data.rides)
   }
 
-    return (
-      
-        <div>
-            <h1>Welcome!</h1>
-            <section className="container-grid">
-            {rides.map((ride) => (
-            <RideGenerator
-              name={ride.name}
-              key={ride.id}
-              id={ride._id}
-              height={ride.heightRequirement}
-              image={ride.image}
-              {...ride}
-            />
-          ))} 
-            </section>
-        </div>
+  return (
 
-    )
+    <div>
+      <header>Rea Point</header>
+      <section className="container-grid">
+        {rides.map((ride) => (
+          <RideGenerator
+            name={ride.name}
+            key={ride.id}
+            id={ride._id}
+            height={ride.heightRequirement}
+            image={ride.image}
+            {...ride}
+          />
+        ))}
+      </section>
+    </div>
+
+  )
 }
 
 export default Home

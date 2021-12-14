@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import '../App.css'
+
 
 const RideGenerator = (props) => {
     console.log(props.id)
