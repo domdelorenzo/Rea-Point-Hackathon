@@ -23,39 +23,46 @@ const ReviewForm = (props) => {
                 
                 <input 
                 type="text" 
-                value={props.value} 
+                // value={props.value}
+                title={props.title}
                 onChange={props.onChange} 
-                // name={'title'} 
+                name="title"
                 placeholder={'Give us a short description.'} 
                 />
 
                 <input 
                 type="text" 
-                value={props.value} 
-                onChange={props.onChange} 
-                name={'name'} 
+                // value={props.value} 
+                onChange={props.onChange}
+                ridename={props.ridename} 
+                name="name" 
                 placeholder={'Which ride would you like to review?'} 
                 />
 
                 <input 
                 type="text" 
-                value={props.value} 
+                // value={props.value} 
                 onChange={props.onChange} 
-                name={'username'} placeholder={'Create a pseudonym'} 
+                name="username"
+                username={props.username} 
+                placeholder={'Create a pseudonym'} 
                 />
 
-                <input type="text-area" 
-                value={props.value} 
+                <input 
+                type="text-area" 
+                // value={props.value} 
                 onChange={props.onChange} 
-                name={'description'} 
+                name="description"
+                description={props.description}
                 placeholder={'Describe your experience in detail.'} 
                 />
 
                 <input 
                 type="integer" 
-                value={props.value} 
-                onChange={props.onChange} 
-                name={'rating'} 
+                // value={props.value} 
+                onChange={props.onChange}
+                rating={props.rating} 
+                name="rating" 
                 placeholder={'How would you rate us 1-5?'} 
                 />
                 
