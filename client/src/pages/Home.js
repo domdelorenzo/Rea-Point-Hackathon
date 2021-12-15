@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import RideGenerator from '../components/RideGenerator'
-import RideReview from './RideReview'
 import '../App.css'
 
 const Home = (props) => {
