@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../App.css'
 
 
@@ -10,7 +10,7 @@ const RideGenerator = (props) => {
         <div className="ride-card">
 
             <div className="img-wrapper">
-                <img src={props.image} alt="ride image" />
+                <img src={props.image} alt="ride" />
 
             </div>
             <div className="info-wrapper">

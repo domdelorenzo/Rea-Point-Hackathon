@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Reviews from '../components/Reviews'
+import ReviewForm from '../components/ReviewForm'
 
 const RideReview = (props) => {
 
     const [reviews, setReviews] = useState([])
     const [ride, setRide] = useState([])
     const { id } = useParams()
+
+    const handleChange = (e) => {
+        console.log(e.target.value)
+    }
 
     useEffect(() => {
         getRideAndReviews()
@@ -19,13 +24,11 @@ const RideReview = (props) => {
         const response = await axios.get(
             `http://localhost:3001/api/rides/id/${id}`
         )
-        console.log(response.data.ride.image)
         setRide(response.data.ride)
         const res = await axios.get(
             'http://localhost:3001/api/reviews'
             )
             let currentReviews = res.data.reviews.filter((rideReview) => rideReview.name === response.data.ride.name)
-            console.log('filtered', currentReviews)
             setReviews(currentReviews)
     }
 
@@ -54,6 +57,13 @@ const RideReview = (props) => {
                             {...reviews}
                         />
                     ))}
+                </section>
+                <section>
+                    <ReviewForm 
+                    onChange={handleChange}
+                    value={}
+                    onSubmit={postResults}
+                    />
                 </section>
             </div>
 
