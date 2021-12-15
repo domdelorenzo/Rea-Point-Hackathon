@@ -10,31 +10,24 @@ const RideReview = (props) => {
     const { id } = useParams()
 
     useEffect(() => {
-        showReviews()
-        getRide()
+        getRideAndReviews()
+        // showReviews(ride)
 
     }, [])
 
-    const getRide = async () => {
+    const getRideAndReviews = async () => {
         const response = await axios.get(
             `http://localhost:3001/api/rides/id/${id}`
         )
         console.log(response.data.ride.image)
         setRide(response.data.ride)
-    }
-
-    const showReviews = async () => {
         const res = await axios.get(
             'http://localhost:3001/api/reviews'
             )
-            // `http://localhost:3001/api/reviews/${props.name}`
-            // console.log('ridename', props.name)
-            // /reviews/:name
-            setReviews(res.data.reviews)
-            
+            let currentReviews = res.data.reviews.filter((rideReview) => rideReview.name === response.data.ride.name)
+            console.log('filtered', currentReviews)
+            setReviews(currentReviews)
     }
-
-    // console.log('rideimagereturn', response.data)
 
     return (
         <div className="ride-card">
