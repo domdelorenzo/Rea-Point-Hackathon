@@ -10,14 +10,14 @@ const RideGenerator = (props) => {
         <div className="ride-card">
 
             <div className="img-wrapper">
-                    <img src={props.image} alt="ride image" />
+                <img src={props.image} alt="ride image" />
 
             </div>
             <div className="info-wrapper">
                 <h2>{props.name}</h2>
                 <h3>{props.description}</h3>
                 <h3>Height Requirement:{props.heightRequirement} inches</h3>
-                < Link to={`/RideReview/${props.id}`} >
+                < Link to={`/rides/${props.id}`} >
                 <h4>Ride Reviews!</h4>
                 </Link>
             </div>
