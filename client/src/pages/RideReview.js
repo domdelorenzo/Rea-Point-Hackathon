@@ -34,8 +34,8 @@ const RideReview = (props) => {
   }, []);
   const postResults = (e) => {
     e.preventDefault();
-    // const res = await axios.post('http://localhost:3001/api/reviews', form);
-    // res();
+    axios.post('http://localhost:3001/api/reviews', form);
+
     console.log('This is when we should run an api request');
     // console.log('This is my ' + description);
   };
