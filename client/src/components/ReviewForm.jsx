@@ -10,7 +10,7 @@ const ReviewForm = (props) => {
     const [rating, setRating] = useState(0)
 
     const handleSubmit = async () => {
-        const res = await axios.post('localhost:3001/api/reviews/:id')
+        const res = await axios.post('localhost:3001/api/reviews')
     }
 
     return (
